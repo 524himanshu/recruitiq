@@ -4,9 +4,9 @@ team:
     - name: Himanshu Menghani
       role: Backend & AI Engineer
       github: https://github.com/524himanshu
-    - name: # Your teammate's name here
+    - name: Roshni Talreja
       role: Frontend & Presentation
-      github: # Her GitHub URL
+      github: https://github.com/roshh1601
 
 project:
   name: RecruitIQ

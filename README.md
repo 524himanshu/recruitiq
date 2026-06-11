@@ -38,7 +38,7 @@ We built a five-component weighted scoring system that goes beyond keyword match
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/recruitiq
+git clone https://github.com/524himanshu/recruitiq
 cd recruitiq
 
 # Create virtual environment
