@@ -1,0 +1,6 @@
+candidates.jsonl
+venv/
+__pycache__/
+*.pyc
+.env
+embeddings_cache.pkl

@@ -1,0 +1,34 @@
+team:
+  name: GhostProtocol
+  members:
+    - name: Himanshu Menghani
+      role: Backend & AI Engineer
+      github: https://github.com/524himanshu
+    - name: # Your teammate's name here
+      role: Frontend & Presentation
+      github: # Her GitHub URL
+
+project:
+  name: RecruitIQ
+  track: Data & AI Challenge — Intelligent Candidate Discovery
+  repository: https://github.com/524himanshu/recruitiq
+  sandbox: # HuggingFace Spaces or Streamlit Cloud URL — add after deploying
+
+approach:
+  embedding_model: all-MiniLM-L6-v2
+  scoring_components:
+    - semantic_similarity: 20%
+    - career_fit: 28%
+    - skills_match: 17%
+    - behavioral_signals: 30%
+    - education_tier: 5%
+  honeypot_detection: true
+  keyword_stuffer_detection: true
+  consulting_penalty: true
+
+submission:
+  output_file: submission/ghostprotocol.csv
+  total_candidates_ranked: 100
+  score_range:
+    rank_1: 0.8386
+    rank_100: 0.7008
