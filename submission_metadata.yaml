@@ -12,7 +12,8 @@ project:
   name: RecruitIQ
   track: Data & AI Challenge — Intelligent Candidate Discovery
   repository: https://github.com/524himanshu/recruitiq
-  sandbox: # HuggingFace Spaces or Streamlit Cloud URL — add after deploying
+  sandbox: https://reqruitiq.streamlit.app
+
 
 approach:
   embedding_model: all-MiniLM-L6-v2
