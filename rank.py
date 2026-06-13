@@ -108,6 +108,28 @@ def is_honeypot(candidate: dict) -> bool:
     if total_career_months > (yoe * 12) + 24:
         return True
 
+    # Check 4: Technology anachronism — only flag massive overages (2x+ impossible)
+    TECH_RELEASE_MONTHS = {
+        "rag": 73,
+        "retrieval augmented generation": 73,
+        "chatgpt": 31,
+        "gpt-4": 26,
+        "llama": 28,
+        "langchain": 30,
+        "llamaindex": 28,
+        "pinecone": 43,
+        "weaviate": 55,
+        "qdrant": 43,
+        "chromadb": 24,
+    }
+
+    for skill in skills:
+        name  = skill["name"].lower()
+        usage = skill.get("duration_months", 0)
+        for tech, max_months in TECH_RELEASE_MONTHS.items():
+            if tech in name and usage > max_months * 2.5:
+                return True
+
     return False
 
 # Component weights — must sum to 1.0
