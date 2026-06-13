@@ -5,7 +5,7 @@
 **Problem:** Rank 100,000 candidates against a Senior AI Engineer job description using intelligent multi-signal scoring.
 
 ---
-**Live Demo:** https://reqruitiq.streamlit.app
+**Live Demo:** https://recruitiq-redrob.streamlit.app/
 
 
 ---
@@ -26,7 +26,7 @@ We built a five-component weighted scoring system that goes beyond keyword match
 
 ### Key Design Decisions
 
-**Consulting-only penalty:** Candidates whose entire career history is at consulting firms (TCS, Infosys, Wipro, etc.) receive a 0.25x multiplier on career score. The JD explicitly disqualifies this background.
+**Consulting-only penalty:** Candidates whose entire career history is at consulting firms (TCS, Infosys, Wipro, etc.) receive a 0.25x multiplier on career score. The JD prioritizes product-company experience over consulting backgrounds.
 
 **Keyword stuffer detection:** Candidates with 6+ matched AI skills but a non-AI title and no ML signals in their career descriptions receive a 0.35x skills score penalty.
 
@@ -59,12 +59,14 @@ pip install -r requirements.txt
 ## Run
 
 ```bash
+# With embeddings (best quality, ~4 mins first run, <60s cached)
 python rank.py --candidates candidates.jsonl --out submission/recruitiq.csv
+
+# No GPU needed, runs in ~60 seconds
+python rank.py --candidates candidates.jsonl --out submission/recruitiq.csv --no-embeddings
 ```
 
-First run downloads and caches embeddings (~4 mins on GPU, ~25 mins on CPU).  
-Subsequent runs load from cache and complete in under 60 seconds.
-
+Embeddings are cached after the first run, so subsequent runs complete in under 60 seconds.
 ---
 
 ## Validate
@@ -91,12 +93,11 @@ recruitiq/
 
 ## Results
 
-Score range: 0.8386 (rank 1) → 0.7008 (rank 100)
+Score range: 0.8264 (rank 1) → 0.6932 (rank 100)
 
 Top 5 candidates:
-1. Senior NLP Engineer at Niramai — 7.8 yrs, Indore
-2. Search Engineer at Sarvam AI — 7.6 yrs, Gurgaon
-3. Senior ML Engineer at Zomato — 7.2 yrs, Noida
-4. Senior ML Engineer at Genpact AI — 6.1 yrs, Pune
-5. AI Engineer at upGrad — 7.6 yrs, Indore
-
+1. Search Engineer at Sarvam AI — 7.6 yrs, Gurgaon
+2. Senior NLP Engineer at Niramai — 7.8 yrs, Indore
+3. Senior ML Engineer at Genpact AI — 6.1 yrs, Pune
+4. AI Engineer at upGrad — 7.6 yrs, Indore
+5. Staff ML Engineer at Yellow.ai — 8.6 yrs, Jaipur
