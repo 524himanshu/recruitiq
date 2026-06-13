@@ -303,7 +303,7 @@ if st.button("🚀 Rank Candidates", type="primary", use_container_width=True):
                 st.subheader("Top Candidates")
                 st.dataframe(
                     results[:top_n],
-                    use_container_width=True,
+                    width=True,
                     hide_index=True,
                     column_config={
                         "Score": st.column_config.ProgressColumn(
