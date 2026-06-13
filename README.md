@@ -5,6 +5,10 @@
 **Problem:** Rank 100,000 candidates against a Senior AI Engineer job description using intelligent multi-signal scoring.
 
 ---
+**Live Demo:** https://reqruitiq.streamlit.app
+
+
+---
 
 ## Approach
 
