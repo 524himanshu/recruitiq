@@ -712,14 +712,18 @@ def score_candidate(candidate: dict) -> tuple:
 def main():
     parser = argparse.ArgumentParser(description="GhostProtocol Candidate Ranker")
     parser.add_argument("--candidates", default="candidates.jsonl")
-    parser.add_argument("--out",        default="submission/ghostprotocol.csv")
+    parser.add_argument("--out", default="submission/recruitiq.csv")
+    parser.add_argument("--no-embeddings", action="store_true",
+                        help="Skip sentence-transformers, use TF-IDF. Runs in ~60s on CPU, no GPU needed.")
     args = parser.parse_args()
 
-    # Load
     candidates = load_candidates(args.candidates)
     global EMBEDDING_SCORES
-    EMBEDDING_SCORES = build_embedding_scores(candidates)
-
+    if not args.no_embeddings:
+        EMBEDDING_SCORES = build_embedding_scores(candidates)
+    else:
+        print("Skipping embeddings. Using TF-IDF fallback.")
+        
     # Score all candidates
     print("Scoring candidates...")
     results = []
